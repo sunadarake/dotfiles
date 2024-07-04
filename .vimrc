@@ -88,7 +88,7 @@ set backspace=indent,eol,start
 let g:snipMate = { 'snippet_version' : 1 }
 
 " { などの括弧を書いたときに閉じ括弧を補完する。
-function! MyInsertPair(open, close)
+function! InsertPair(open, close)
   if &paste
     return a:open
   else
@@ -96,11 +96,11 @@ function! MyInsertPair(open, close)
   endif
 endfunction
 
-inoremap { <C-R>=MyInsertPair('{', '}')<CR>
-inoremap [ <C-R>=MyInsertPair('[', ']')<CR>
-inoremap ( <C-R>=MyInsertPair('(', ')')<CR>
-inoremap " <C-R>=MyInsertPair('"', '"')<CR>
-inoremap ' <C-R>=MyInsertPair("'", "'")<CR>
+inoremap { <C-R>=InsertPair('{', '}')<CR>
+inoremap [ <C-R>=InsertPair('[', ']')<CR>
+inoremap ( <C-R>=InsertPair('(', ')')<CR>
+inoremap " <C-R>=InsertPair('"', '"')<CR>
+inoremap ' <C-R>=InsertPair("'", "'")<CR>
 
 " change cmd to powershell
 if has("win64") || has("win32")
@@ -127,13 +127,10 @@ nnoremap <leader>f :call FormatOnSave()<CR>
 
 " 現在のファイルを保存して、そのファイルを実行する関数
 function! ExecuteFile()
-    " 現在のファイルを保存
     write
 
-    " ファイルの拡張子を取得
     let l:filetype = expand('%:e')
 
-    " 拡張子に応じたコマンドを実行
     if l:filetype ==# 'py'
         execute '!python3' shellescape(@%, 1)
     elseif l:filetype ==# 'pl'
