@@ -12,3 +12,12 @@ sudo apt install python3.12-venv -y
 python3 pipx.pyz install pipx
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bash_profile
 rm pipx.pyz
+
+# fontconfigのインストール
+sudo apt -y install fontconfig
+
+# fontとして Robotoをインストール
+sudo apt -y install fonts-roboto
+
+
+
