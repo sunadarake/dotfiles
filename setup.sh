@@ -4,7 +4,9 @@
 set -e
 
 # スクリプト開始
+echo ""
 echo "🚀 Start Dotfiles setup"
+echo ""
 
 # dotfilesディレクトリの場所（スクリプト自身のディレクトリ）
 DOTFILES_DIR="$(dirname "$0")"
@@ -41,4 +43,6 @@ find "$DOTFILES_DIR" -type f \( \
     ln -s "$file" "$target"
 done
 
+echo ""
 echo "✅ Dotfiles setup completed!"
+echo ""
