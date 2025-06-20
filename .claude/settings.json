@@ -1,0 +1,273 @@
+{
+    "permissions": {
+        "allow": [
+            "List(*)",
+            "Edit(*)",
+            "Fetch(https://*)",
+            "Bash(ls:*)",
+            "Bash(rg:*)",
+            "Bash(mv:*)",
+            "Bash(make:*)",
+            "Bash(mkdir:*)",
+            "Bash(cp:*)",
+            "Bash(chmod:*)",
+            "Bash(chown:*)",
+            "Bash(find:*)",
+            "Bash(grep:*)",
+            "Bash(cat:*)",
+            "Bash(head:*)",
+            "Bash(tail:*)",
+            "Bash(less:*)",
+            "Bash(more:*)",
+            "Bash(wc:*)",
+            "Bash(sort:*)",
+            "Bash(uniq:*)",
+            "Bash(cut:*)",
+            "Bash(awk:*)",
+            "Bash(sed:*)",
+            "Bash(tar:*)",
+            "Bash(gzip:*)",
+            "Bash(gunzip:*)",
+            "Bash(zip:*)",
+            "Bash(unzip:*)",
+            "Bash(curl:*)",
+            "Bash(wget:*)",
+            "Bash(ps:*)",
+            "Bash(top:*)",
+            "Bash(which:*)",
+            "Bash(whereis:*)",
+            "Bash(whoami:*)",
+            "Bash(pwd:*)",
+            "Bash(du:*)",
+            "Bash(df:*)",
+            "Bash(date:*)",
+            "Bash(echo:*)",
+            "Bash(printf:*)",
+            "Bash(history:*)",
+            "Bash(alias:*)",
+            "Bash(env:*)",
+            "Bash(export:*)",
+            "Bash(source:*)",
+            "Bash(ln:*)",
+            "Bash(touch:*)",
+            "Bash(file:*)",
+            "Bash(stat:*)",
+            "Bash(diff:*)",
+            "Bash(cmp:*)",
+            "Bash(rsync:*)",
+            "Bash(ssh:*)",
+            "Bash(scp:*)",
+            "Bash(ping:*)",
+            "Bash(netstat:*)",
+            "Bash(lsof:*)",
+            "Bash(brew:*)",
+            "Bash(npm:*)",
+            "Bash(yarn:*)",
+            "Bash(pip:*)",
+            "Bash(git checkout:*)",
+            "Bash(git add:*)",
+            "Bash(git push:*)",
+            "Bash(git checkout:*)",
+            "Bash(git remote set-url:*)",
+            "Bash(git pull:*)",
+            "Bash(git reset:*)",
+            "Bash(git cherry-pick:*)",
+            "Bash(ls:*)",
+            "Bash(flutter create:*)",
+            "Bash(mkdir:*)",
+            "Bash(flutter pub:*)",
+            "Bash(flutter run:*)",
+            "Bash(flutter build:*)",
+            "Bash(flutter test:*)",
+            "Bash(git commit:*)",
+            "Bash(git config:*)",
+            "Bash(flutter:*)"
+        ],
+        "file_operations": {
+            "read": true,
+            "write": true,
+            "create": true,
+            "delete": false,
+            "allowed_extensions": [
+                ".dart",
+                ".yaml",
+                ".yml",
+                ".json",
+                ".md",
+                ".txt",
+                ".js",
+                ".ts",
+                ".html",
+                ".css",
+                ".scss"
+            ],
+            "restricted_paths": [
+                ".git/",
+                "node_modules/",
+                ".dart_tool/",
+                "build/",
+                ".flutter-plugins*"
+            ]
+        },
+        "command_execution": {
+            "enabled": true,
+            "allowed_commands": [
+                "flutter",
+                "dart",
+                "pub",
+                "git",
+                "ls",
+                "cat",
+                "grep",
+                "find",
+                "mkdir",
+                "rm",
+                "cp",
+                "mv",
+                "chmod",
+                "pwd",
+                "which",
+                "echo",
+                "tree"
+            ],
+            "flutter_commands": [
+                "flutter doctor",
+                "flutter pub get",
+                "flutter pub deps",
+                "flutter clean",
+                "flutter build",
+                "flutter run",
+                "flutter test",
+                "flutter analyze",
+                "flutter format",
+                "flutter create",
+                "flutter devices",
+                "flutter emulators",
+                "flutter logs"
+            ]
+        }
+    },
+    "project_context": {
+        "type": "flutter",
+        "description": "Flutter mobile application project",
+        "main_directories": [
+            "lib/",
+            "test/",
+            "assets/",
+            "android/",
+            "ios/"
+        ],
+        "key_files": [
+            "pubspec.yaml",
+            "lib/main.dart",
+            "analysis_options.yaml"
+        ]
+    },
+    "development_preferences": {
+        "auto_format": true,
+        "run_analyzer": true,
+        "preferred_test_runner": "flutter test",
+        "build_mode": "debug"
+    },
+    "common_workflows": {
+        "setup": [
+            "flutter doctor",
+            "flutter pub get"
+        ],
+        "clean_build": [
+            "flutter clean",
+            "flutter pub get",
+            "flutter build apk"
+        ],
+        "test_and_analyze": [
+            "flutter analyze",
+            "flutter test",
+            "flutter format --set-exit-if-changed ."
+        ]
+    },
+    "safety_settings": {
+        "require_confirmation": [
+            "rm",
+            "flutter clean",
+            "git reset --hard"
+        ],
+        "backup_before_major_changes": true,
+        "max_file_size_mb": 10
+    },
+    "rules": [
+        "TDD（テスト駆動開発）の手法に従って開発を進める",
+        "Red-Green-Refactorサイクルの各段階でコミットを行う",
+        "テストを先に書いてからコードを実装する",
+        "テストが通るたびにコミットする",
+        "リファクタリング後は必ずコミットする",
+        "flutter runの実行前後でログ出力とエラーチェックを行う",
+        "flutter run実行時は必ずログファイルを生成する",
+        "エラー発生時はログを解析してから次のアクションを決定する",
+        "flutter doctorで環境チェックを定期的に実行する",
+        "ビルドエラーやランタイムエラーを検出したら即座に対処する",
+        "コミットメッセージはTDDのフェーズを明記する",
+        "git statusで状態を確認してからコミットする"
+    ],
+    "tddWorkflow": {
+        "commitOnRedPhase": "🔴 テスト追加: [機能名] - テスト失敗",
+        "commitOnGreenPhase": "🟢 実装完了: [機能名] - テスト通過",
+        "commitOnRefactorPhase": "♻️ リファクタリング: [機能名] - コード改善",
+        "runTestsBeforeCommit": true
+    },
+    "gitSettings": {
+        "autoStageTests": true,
+        "requireTestPass": true,
+        "branchNaming": "機能名"
+    },
+    "git": {
+        "autoCommit": true,
+        "autoCommitMessage": "Auto commit by Claude Code",
+        "commitOnFileChanges": true,
+        "includeUntracked": false
+    },
+    "workflow": {
+        "autoGit": true,
+        "gitCommitPattern": "feat: {description}",
+        "commitAfterChanges": true
+    },
+    "flutterErrorDetection": {
+        "logFile": "flutter_run.log",
+        "verboseMode": true,
+        "checkCommands": [
+            "flutter doctor -v",
+            "flutter analyze",
+            "flutter test --reporter=json"
+        ],
+        "errorPatterns": [
+            "ERROR",
+            "EXCEPTION",
+            "FAILED",
+            "BUILD FAILED",
+            "Hot reload not supported"
+        ],
+        "preRunChecks": true,
+        "postRunAnalysis": true
+    },
+    "debugWorkflow": {
+        "captureOutput": true,
+        "verboseLogging": true,
+        "analyzeBeforeRun": true,
+        "testBeforeRun": false
+    },
+    "flutterTddWorkflow": {
+        "unitTestCommand": "flutter test",
+        "webTestCommand": "flutter run -d chrome",
+        "testSequence": [
+            "unit",
+            "web"
+        ],
+        "commitOnRedPhase": "🔴 テスト追加: [機能名] - ユニット/Webテスト失敗",
+        "commitOnGreenPhase": "🟢 実装完了: [機能名] - ユニット+Webテスト通過",
+        "commitOnRefactorPhase": "♻️ リファクタリング: [機能名] - ユニット+Webテスト確認済み"
+    },
+    "flutterSettings": {
+        "runWebTestAfterUnit": true,
+        "webTestTimeout": 50,
+        "requireBothTestsPass": true
+    }
+}
