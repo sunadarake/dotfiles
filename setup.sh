@@ -3,13 +3,20 @@
 # エラー時にスクリプトを終了
 set -e
 
-# dotfilesディレクトリの場所（スクリプト自身のディレクトリ内のdotfiles）
+# スクリプト開始
+echo "🚀 Start Dotfiles setup"
+
+# dotfilesディレクトリの場所（スクリプト自身のディレクトリ）
 DOTFILES_DIR="$(dirname "$0")"
 
-echo "🚀 Start Dotfiles setup!"
-
-# dotfilesディレクトリ内のドットファイルおよびサブディレクトリ内のファイルを再帰的に取得
-find "$DOTFILES_DIR" -type f -name ".*" -o -path "*/.*/*" | while read -r file; do
+# ディレクトリ内のファイルを取得
+# 1. 直下のドットファイル
+# 2. .で始まるディレクトリ配下の全ファイル（.gitを除外）
+# 3. その他のサブディレクトリ内のドットファイル
+find "$DOTFILES_DIR" -type f \( \
+    -name ".*" -o \
+    -path "$DOTFILES_DIR/.*/*" -not -path "$DOTFILES_DIR/.git/*" \
+\) | while read -r file; do
     # ホームディレクトリでのリンク先パスを構築
     relative_path="${file#$DOTFILES_DIR/}"
     target="$HOME/$relative_path"
